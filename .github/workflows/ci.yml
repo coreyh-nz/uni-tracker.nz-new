@@ -32,5 +32,5 @@ jobs:
       - name: Test common
         run: ./gradlew :common:test
 
-      - name: Compile common-test
-        run: ./gradlew :common-test:classes
+      - name: Compile commontest
+        run: ./gradlew :commontest:classes
