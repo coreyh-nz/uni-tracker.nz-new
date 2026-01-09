@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: ["**"]
+
+permissions:
+  checks: write
+  pull-requests: write
+
+jobs:
+  common:
+    name: Build & Test common modules
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 25
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+
+      - name: Test common
+        run: ./gradlew :common:test
+
+      - name: Compile common-test
+        run: ./gradlew :common-test:classes
