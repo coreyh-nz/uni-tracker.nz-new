@@ -5,4 +5,6 @@ import nz.unitracker.backend.common.domain.model.user.UserId
 
 fun generateId(): String = CUID.randomCUID2().toString()
 
+fun generateJwtId(): JwtId = JwtId(generateId())
+
 fun generateUserId(): UserId = UserId(generateId())
