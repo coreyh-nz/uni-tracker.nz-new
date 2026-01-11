@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
+language: en
+early_access: false
+
+reviews:
+  profile: chill
+  high_level_summary: true
+  collapse_walkthrough: true
+  poem: false
+  request_changes_workflow: true
+  changed_files_summary: false
+  sequence_diagrams: false
+  estimate_code_review_effort: false
+  enable_prompt_for_ai_agents: false
+
+  pre_merge_checks:
+    title:
+      mode: off
+    description:
+      mode: off
+    issue_assessment:
+      mode: off
+    docstrings:
+      mode: off
+  
+  path_filters:
+    - "**/*.kt"
+    - "**/*.kts"
+    - "!**/*.md"
+    - "!**/*.txt"
+
+  auto_review:
+    enabled: true
+    auto_incremental_review: true
+    drafts: false
+    # Ignore dependabot PRs
+    ignore_usernames:
+      - dependabot
+      - "dependabot[bot]"
+
+  finishing_touches:
+    docstrings:
+      enabled: false
+    unit_tests:
+      enabled: false
+
+  path_instructions:
+    - path: "**/*.kt"
+      instructions: |
+        Kotlin best practices to check:
+
+        Language correctness:
+        - Null safety: Ensure proper use of nullable types, avoid unnecessary null assertions (!!)
+        - Immutability: Prefer val over var, use immutable collections where possible
+        - Data class usage: Use data classes for DTOs and value objects
+        - Sealed class usage: Use sealed classes for representing restricted hierarchies
+
+        Code quality:
+        - Complexity: Flag functions with high cyclomatic complexity (>10)
+        - Dead code: Identify unused functions, variables, and imports
+        - Naming conventions: Follow Kotlin naming conventions (camelCase for functions/properties, PascalCase for classes)
+
+        Performance:
+        - Avoid unnecessary allocations in hot paths
+        - Collection usage: Use appropriate collection types and operations (prefer sequences for large collections with multiple operations)
+
+        API and design:
+        - Visibility modifiers: Use appropriate visibility (prefer private/internal over public)
+        - Unnecessary public API: Flag overly exposed APIs
+
+        Error handling:
+        - Proper exception handling, avoid swallowing exceptions
+        - Result usage: Consider using Result type for operations that can fail
+
+        Security:
+        - No hardcoded secrets or credentials
+        - Use SecureRandom instead of Random for security-sensitive operations
+        - Avoid unsafe deserialization
