@@ -33,6 +33,8 @@ reviews:
     enabled: true
     auto_incremental_review: true
     drafts: false
+    base_branches:
+      - dev
     # Ignore dependabot PRs
     ignore_usernames:
       - dependabot
