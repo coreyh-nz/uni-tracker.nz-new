@@ -6,6 +6,7 @@ import nz.unitracker.backend.authservice.domain.model.user.token.IssuedToken
 import nz.unitracker.backend.common.domain.model.id.JwtId
 import nz.unitracker.backend.common.domain.model.id.generateJwtId
 import nz.unitracker.backend.common.domain.model.user.UserId
+import nz.unitracker.backend.common.domain.primitive.SensitiveString
 import org.springframework.security.oauth2.jwt.JwtClaimsSet
 import org.springframework.security.oauth2.jwt.JwtDecoder
 import org.springframework.security.oauth2.jwt.JwtEncoder
@@ -47,7 +48,7 @@ class TokenService(
         return IssuedToken(
             id = JwtId(jwt.id),
             userId = UserId(jwt.subject),
-            value = jwt.tokenValue,
+            value = SensitiveString(jwt.tokenValue),
             lifetime = expiresAt - issuedAt,
             issuedAt = issuedAt,
             expiresAt = expiresAt,
@@ -77,7 +78,7 @@ class TokenService(
         return IssuedToken(
             id = jwtId,
             userId = userId,
-            value = jwt.tokenValue,
+            value = SensitiveString(jwt.tokenValue),
             lifetime = lifetime,
             issuedAt = now,
             expiresAt = expiresAt,

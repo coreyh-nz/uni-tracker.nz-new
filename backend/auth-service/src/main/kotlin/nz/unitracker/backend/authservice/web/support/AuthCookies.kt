@@ -36,7 +36,7 @@ object AuthCookies {
         issuedToken: IssuedToken,
         block: (CookieBuilder.() -> Unit)? = null,
     ) {
-        addCookie(name, issuedToken.value) {
+        addCookie(name, issuedToken.value.value) {
             lifetime = issuedToken.lifetime
             sameSite = Cookie.SameSite.STRICT
             httpOnly = true

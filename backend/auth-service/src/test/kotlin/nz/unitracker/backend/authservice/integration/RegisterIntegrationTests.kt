@@ -46,7 +46,7 @@ class RegisterIntegrationTests(
         user.shouldNotBeNull()
 
         // check user credentials were created and valid
-        userCredentialService.verifyPassword(user.id, request.password)
+        userCredentialService.verifyPassword(user.id, request.password.value)
     }
 
     // exceptional

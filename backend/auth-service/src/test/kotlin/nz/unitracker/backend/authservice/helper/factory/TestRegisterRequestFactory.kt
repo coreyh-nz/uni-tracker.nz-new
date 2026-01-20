@@ -1,6 +1,7 @@
 package nz.unitracker.backend.authservice.helper.factory
 
 import nz.unitracker.backend.authservice.web.dto.RegisterRequest
+import nz.unitracker.backend.common.domain.primitive.SensitiveString
 
 fun createTestRegisterRequest(
     firstName: String = "Jane",
@@ -12,6 +13,6 @@ fun createTestRegisterRequest(
     firstName = firstName,
     lastName = lastName,
     email = email,
-    password = password,
-    confirmPassword = confirmPassword,
+    password = SensitiveString(password),
+    confirmPassword = SensitiveString(confirmPassword),
 )

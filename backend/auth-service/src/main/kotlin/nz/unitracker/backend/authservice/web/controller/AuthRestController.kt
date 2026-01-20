@@ -26,7 +26,7 @@ class AuthRestController(
             firstName = request.firstName,
             lastName = request.lastName,
             email = request.email,
-            password = request.password,
+            password = request.password.value,
         )
         return ApiResponses.created()
     }
@@ -38,7 +38,7 @@ class AuthRestController(
         val issuedAuthTokens =
             authService.login(
                 email = request.email,
-                password = request.password,
+                password = request.password.value,
             )
         return ApiResponses.ok {
             addAuthTokens(issuedAuthTokens)
