@@ -6,6 +6,7 @@ import io.kotest.matchers.nulls.shouldNotBeNull
 import nz.unitracker.backend.common.application.exception.FieldValidationException
 import nz.unitracker.backend.common.application.exception.FieldViolation
 import nz.unitracker.backend.common.web.dto.ApiErrorResponse
+import kotlin.reflect.KProperty1
 import kotlin.test.fail
 
 private enum class MatchMode {
@@ -22,6 +23,12 @@ class FieldValidationAssertion(
     )
 
     private val expectedFields = mutableMapOf<String, FieldExpectation>()
+
+    infix fun <T> KProperty1<T, *>.shouldContain(message: String) = name shouldContain message
+
+    infix fun <T> KProperty1<T, *>.shouldContainOnly(message: String) = name shouldContainOnly message
+
+    infix fun <T> KProperty1<T, *>.shouldContainAll(messages: List<String>) = name shouldContainAll messages
 
     infix fun String.shouldContain(message: String) {
         require(this !in expectedFields) { "Field '$this' already has an expectation registered" }

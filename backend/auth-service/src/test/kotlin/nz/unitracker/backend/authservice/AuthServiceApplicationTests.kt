@@ -1,9 +1,9 @@
 package nz.unitracker.backend.authservice
 
+import nz.unitracker.backend.authservice.helper.AuthIntegrationTest
 import org.junit.jupiter.api.Test
-import org.springframework.boot.test.context.SpringBootTest
 
-@SpringBootTest
+@AuthIntegrationTest
 class AuthServiceApplicationTests {
     @Suppress("EmptyFunctionBlock")
     @Test
