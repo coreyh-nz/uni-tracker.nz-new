@@ -1,0 +1,19 @@
+services:
+  postgres:
+    image: postgres:18.0-alpine
+    container_name: ut-postgres
+    restart: unless-stopped
+
+    ports:
+      - "5432:5432"
+
+    environment:
+      POSTGRES_DB: ut_test
+      POSTGRES_USER: ut_test
+      POSTGRES_PASSWORD: ut_test
+
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
