@@ -19,7 +19,7 @@ class UserCredentialService(
         password: String,
     ) {
         val now = clock.now()
-        val hashedPassword = passwordEncoder.encode(password)
+        val hashedPassword = requireNotNull(passwordEncoder.encode(password))
         val userCredential =
             UserPasswordCredential(
                 userId = userId,
