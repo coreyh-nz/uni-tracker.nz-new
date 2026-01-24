@@ -14,4 +14,6 @@ abstract class BaseIdTable(
 ) : IdTable<String>("ut_$name") {
     /** Primary key column */
     override val id: Column<EntityID<String>> = varchar("id", 24).entityId()
+
+    override val primaryKey: PrimaryKey = PrimaryKey(id)
 }
