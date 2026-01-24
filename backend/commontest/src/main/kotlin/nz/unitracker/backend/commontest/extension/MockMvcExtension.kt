@@ -1,13 +1,13 @@
 package nz.unitracker.backend.commontest.extension
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.module.kotlin.readValue
-import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import nz.unitracker.backend.common.web.dto.ApiErrorResponse
 import org.springframework.test.web.servlet.MvcResult
 import org.springframework.test.web.servlet.ResultActionsDsl
+import tools.jackson.databind.json.JsonMapper
+import tools.jackson.module.kotlin.KotlinModule
+import tools.jackson.module.kotlin.readValue
 
-private val objectMapper = ObjectMapper().registerKotlinModule()
+private val objectMapper = JsonMapper.builder().addModule(KotlinModule.Builder().build()).build()
 
 fun Any.toJson(): String = objectMapper.writeValueAsString(this)
 

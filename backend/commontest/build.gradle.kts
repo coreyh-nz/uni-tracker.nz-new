@@ -20,6 +20,8 @@ dependencies {
     api(libs.testcontainers.postgres)
 
     api(libs.spring.boot.starter.test)
+    api(libs.spring.boot.starter.jdbc.test)
+    api(libs.spring.boot.starter.webmvc.test)
     api(libs.kotlin.test.junit5)
     api(libs.kotest.assertions)
     api(libs.kotest.runner)
