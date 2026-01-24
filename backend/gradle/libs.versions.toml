@@ -2,11 +2,11 @@
 kotlin = "2.3.0"
 
 # Spring
-spring-boot = "3.5.9"
+spring-boot = "4.0.2"
 spring-dependency-management = "1.1.7"
 
 # Database
-exposed = "1.0.0-rc-4"
+exposed = "1.0.0"
 postgres = "42.7.8"
 
 # Utils
@@ -56,7 +56,7 @@ konform = { module = "io.konform:konform", version.ref = "konform" }
 exposed-core = { module = "org.jetbrains.exposed:exposed-core", version.ref = "exposed" }
 exposed-jdbc = { module = "org.jetbrains.exposed:exposed-jdbc", version.ref = "exposed" }
 exposed-kotlin-datetime = { module = "org.jetbrains.exposed:exposed-kotlin-datetime", version.ref = "exposed" }
-exposed-spring-boot-starter = { module = "org.jetbrains.exposed:exposed-spring-boot-starter", version.ref = "exposed" }
+exposed-spring-boot-starter = { module = "org.jetbrains.exposed:exposed-spring-boot4-starter", version.ref = "exposed" }
 postgres-driver = { module = "org.postgresql:postgresql", version.ref = "postgres" }
 
 flyway-core = { module = "org.flywaydb:flyway-core" }
@@ -78,6 +78,6 @@ kotest-engine = { module = "io.kotest:kotest-framework-engine", version.ref = "k
 mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
 
 testcontainers-bom = { module = "org.testcontainers:testcontainers-bom", version.ref = "testcontainers" }
-testcontainers-junit = { module = "org.testcontainers:junit-jupiter" }
-testcontainers-postgres = { module = "org.testcontainers:postgresql" }
+testcontainers-junit = { module = "org.testcontainers:testcontainers-junit-jupiter" }
+testcontainers-postgres = { module = "org.testcontainers:testcontainers-postgresql" }
 
