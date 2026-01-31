@@ -16,4 +16,8 @@ value class SensitiveString(
     val value: String,
 ) {
     override fun toString(): String = "****"
+
+    companion object {
+        val Empty = SensitiveString("")
+    }
 }

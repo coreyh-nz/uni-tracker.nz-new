@@ -6,6 +6,7 @@ import nz.unitracker.backend.authservice.web.dto.RegisterRequest
 import nz.unitracker.backend.authservice.web.support.AuthCookies
 import nz.unitracker.backend.authservice.web.support.AuthCookies.addAuthTokens
 import nz.unitracker.backend.authservice.web.support.Routes
+import nz.unitracker.backend.authservice.web.validation.validate
 import nz.unitracker.backend.common.application.exception.UserUnauthenticatedException
 import nz.unitracker.backend.common.web.util.ApiResponses
 import org.springframework.http.ResponseEntity
@@ -22,6 +23,7 @@ class AuthRestController(
     fun register(
         @RequestBody request: RegisterRequest,
     ): ResponseEntity<Unit> {
+        val request = request.validate()
         authService.register(
             firstName = request.firstName,
             lastName = request.lastName,
