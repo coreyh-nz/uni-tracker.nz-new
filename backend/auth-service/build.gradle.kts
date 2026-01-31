@@ -9,6 +9,7 @@ description = "auth-service"
 
 dependencies {
     implementation(project(":common"))
+    implementation(libs.konform)
 
     // Spring Boot Starters
     implementation(libs.spring.boot.starter.security.oauth2.client)
