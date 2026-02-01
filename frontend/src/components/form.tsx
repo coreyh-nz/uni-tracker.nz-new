@@ -11,15 +11,6 @@ import { InputHTMLAttributes, ReactNode } from "react";
 
 const { fieldContext, formContext, useFieldContext } = createFormHookContexts();
 
-export const { useAppForm } = createFormHook({
-    fieldComponents: {
-        Input: FormInput,
-    },
-    formComponents: {},
-    fieldContext,
-    formContext,
-});
-
 type FormControlProps = {
     label: string;
     description?: string;
@@ -30,7 +21,6 @@ type FormBaseProps = FormControlProps & {
     children: ReactNode;
     horizontal?: boolean;
     controlFirst?: boolean;
-    invalid?: boolean;
 };
 
 function FormBase({
@@ -105,3 +95,12 @@ export function FormInput({
         </FormBase>
     );
 }
+
+export const { useAppForm } = createFormHook({
+    fieldComponents: {
+        Input: FormInput,
+    },
+    formComponents: {},
+    fieldContext,
+    formContext,
+});

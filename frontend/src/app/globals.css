@@ -32,6 +32,7 @@
     --color-muted: var(--muted);
     --color-secondary-foreground: var(--secondary-foreground);
     --color-secondary: var(--secondary);
+    --color-primary-deep: var(--primary-deep);
     --color-primary-foreground: var(--primary-foreground);
     --color-primary: var(--primary);
     --color-popover-foreground: var(--popover-foreground);
@@ -56,6 +57,7 @@
     --popover-foreground: var(--color-zinc-950);
     --primary: var(--color-cyan-600);
     --primary-foreground: var(--color-cyan-50);
+    --primary-deep: var(--color-cyan-800);
     --secondary: var(--color-zinc-100);
     --secondary-foreground: var(--color-zinc-900);
     --muted: var(--color-zinc-100);
@@ -91,6 +93,7 @@
     --popover-foreground: var(--color-neutral-50);
     --primary: var(--color-cyan-600);
     --primary-foreground: var(--color-cyan-950);
+    --primary-deep: var(--color-cyan-800);
     --secondary: var(--color-zinc-800);
     --secondary-foreground: var(--color-neutral-50);
     --muted: var(--color-zinc-800);
