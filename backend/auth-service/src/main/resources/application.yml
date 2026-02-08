@@ -10,6 +10,9 @@ spring:
   exposed:
     generate-ddl: true
 
+app:
+  frontend-url: "${APP_FRONTEND_URL}"
+
 jwt:
   access-lifetime: 15m
   refresh-lifetime: 30d
