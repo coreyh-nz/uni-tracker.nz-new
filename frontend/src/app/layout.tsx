@@ -1,3 +1,4 @@
+import QueryProvider from "@/providers/query-provider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Outfit } from "next/font/google";
 import "./globals.css";
@@ -14,10 +15,6 @@ const geistMono = Geist_Mono({
     subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-    title: "Uni-Tracker",
-};
-
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -26,10 +23,14 @@ export default function RootLayout({
     return (
         <html lang="en" className={outfit.variable}>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} flex min-h-screen antialiased`}
             >
-                {children}
+                <QueryProvider>{children}</QueryProvider>
             </body>
         </html>
     );
 }
+
+export const metadata: Metadata = {
+    title: "Uni-Tracker",
+};
